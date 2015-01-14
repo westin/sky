@@ -19,7 +19,11 @@
 
     path.fillColor = {
         gradient: {
-            stops: [[c, 0.01], [c2, 0.1], [c3, 1]],
+            stops: [
+                [c, 0.01],
+                [c2, 0.1],
+                [c3, 1]
+            ],
             radial: true
         },
         origin: path.bounds.center,
@@ -35,19 +39,17 @@
     });
 
     // dull blue
-    // var c4 = new Color(0.47, 0.57, 0.6, 1);
-    // var c5 = new Color(0.47, 0.57, 0.6, 0.7);
-    // var c6 = new Color(0.15, 0.13, 0.27, 0.0);
-
-
-    // dull orange
-    var c4 = new Color(0.69, 0.5, 0.46, 1);
-    var c5 = new Color(0.8, 0.72, 0.56, 0.5);
+    var c4 = new Color(0.23, 0.22, 0.55, 0.3);
+    var c5 = new Color(0.23, 0.22, 0.55, 0.1);
     var c6 = new Color(0.15, 0.13, 0.27, 0.0);
 
     path2.fillColor = {
         gradient: {
-            stops: [[c4, 0.01], [c5, 0.1], [c6, 0.7]],
+            stops: [
+                [c4, 0.01],
+                [c5, 0.3],
+                [c6, 0.7]
+            ],
             radial: true
         },
         origin: path.bounds.center,
@@ -56,15 +58,47 @@
 
     var symbol2 = new Symbol(path2);
 
+    var path3 = new Path.Circle({
+        center: new Point(0, 0),
+        radius: 13,
+        fillColor: 'white'
+    });
+
+    // dull orange
+    var c7 = new Color(0.8, 0.69, 0.45, 0.5);
+    var c8 = new Color(0.8, 0.69, 0.45, 0.2);
+    var c9 = new Color(0.15, 0.13, 0.27, 0.0);
+
+    path3.fillColor = {
+        gradient: {
+            stops: [
+                [c7, 0.0],
+                [c8, 0.3],
+                [c9, 0.7]
+            ],
+            radial: true
+        },
+        origin: path.bounds.center,
+        destination: path.bounds.rightCenter,
+    };
+
+    var symbol3 = new Symbol(path3);
+
     for (var i = 0; i < count; i++) {
 
-        var center = Point.random() * view.size;
-
-        if(i % (count * 0.3) == 0){
+        if (i % (count * 0.2) == 0) {
+            var center = Point.random() * view.size;
             var placed = symbol2.place(center);
             var scale = (Math.random() * (0.5)) + 1;
             console.log(i)
-        } else{
+        }
+        if (i % (count * 0.9) == 0) {
+            var center = Point.random() * view.size;
+            var placed = symbol3.place(center);
+            var scale = (Math.random() * (0.5)) + 1;
+            console.log(i)
+        } else {
+            var center = Point.random() * view.size;
             var placed = symbol.place(center);
             var scale = (i + 1) / count;
         }
@@ -73,20 +107,19 @@
         starList.push(placed);
 
         placed.onFrame = function(event) {
-            if(event.count % 5 == 0){
+            if (event.count % 5 == 0) {
                 for (var i = 0; i < starList.length; i++) {
                     var item = starList[i];
-                    if(item.opacity == 0.8){
+                    if (item.opacity == 0.8) {
                         item.opacity = 1;
-                    }
-                    else {
-                            var random = Math.floor(Math.random() * (starList.length - 1)) + 3;
-                            // console.log(random)
-                            // console.log(random)
-                            if(i % random == 0 || i == 0){
-                                item.opacity = 0.8;
-                            }
+                    } else {
+                        var random = Math.floor(Math.random() * (starList.length - 1)) + 3;
+                        // console.log(random)
+                        // console.log(random)
+                        if (i % random == 0 || i == 0) {
+                            item.opacity = 0.8;
                         }
+                    }
                 }
             }
         }
@@ -97,8 +130,7 @@
     }
 
     function onKeyDown(event) {
-        if (event.key == 'space') {
-        }
+        if (event.key == 'space') {}
     }
 
     // function onMouseDown(event) {
@@ -149,7 +181,7 @@
 
         for (var i = 0; i < starList.length; i++) {
             var item = starList[i];
-            item.position += new Point(item.scaling.x * 0.05,0.0);
+            item.position += new Point(item.scaling.x * 0.02, 0.0);
             keepInView(item);
         }
 
@@ -191,6 +223,6 @@
         }
 
         if (position.y < -itemBounds.height) {
-            position.y = bounds.height  + itemBounds.height / 2;
+            position.y = bounds.height + itemBounds.height / 2;
         }
     }
