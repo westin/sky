@@ -143,26 +143,6 @@
         //     }
         // }
 
-        if(userStarList.length == 0){
-            userStarList.push('0');
-        } else {
-            var clickStar = symbol.place(event.point);
-            clickStar.scale((Math.random() * 2) + 1);
-            userStarList.push(clickStar);
-            var threshold = 2000;
-            if (Math.abs(clickStar.position.y - userStarList[userStarList.length-2].position.y) < threshold && 
-                Math.abs(clickStar.position.x - userStarList[userStarList.length-2].position.x) < threshold){
-
-                var line = new Path.Line( clickStar.position, userStarList[userStarList.length-2].position ) ;
-                line.strokeColor = new Color(.9, .9, .9, .05);
-                line.strokeWidth = 1;
-                line.smooth();
-            } else{
-                console.log(nothin);
-            }
-        }
-
-
     }
 
     function onFrame(event) {
