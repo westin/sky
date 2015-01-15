@@ -53,7 +53,7 @@
         whiteStarList.push(placed);
 
         var starLine = new Path.Line(mouseLoc, center);
-        starLine.strokeColor = 'white';
+        starLine.strokeColor = new Color(1, 1, 1, 0);
         starLine.strokeWidth = 0.3;
 
         closestMouseStars.push(starLine);

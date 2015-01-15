@@ -8,32 +8,53 @@ html {
        radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0.1) 0%, rgba(11,2,16,0.00) 80%);
 	/*background-image: radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 50%);*/
 }
+
+h1 {
+    color: white;
+    opacity: 0.8;
+    text-align: center;
+}
+
+#me {
+    margin: auto;
+    height: 100px;
+    position: absolute;
+    top: 0;
+    bottom: 0; 
+    right: auto; 
+    left: 40px;
+    text-align: left;
+    z-index: 4;
+}
+
 #container {
     height: 100%;
     width: 100%;
     overflow: hidden;
+    position: relative;
+    z-index: 3;
 }
 #noise {
-    -webkit-animation: grainy 2s steps(4) infinite;
+/*    -webkit-animation: grainy 2s steps(4) infinite;
     -moz-animation: grainy 2s steps(4) infinite;
     -ms-animation: grainy 2s steps(4) infinite;
-    animation: grainy 2s steps(4) infinite;
+    animation: grainy 2s steps(4) infinite;*/
     position: fixed;
     height: 132%;
     width: 132%;
     left: -15%;
     top: -15%;
     overflow: hidden;
-    opacity: 0.5;
-    background-image: url(noise3.png);
+/*    opacity: 0.0;
+    background-image: url(noise3.png);*/
     background-repeat: repeat;
     content: '';
     display: block;
-    z-index: 1;
+    z-index: 2;
 }
 canvas {
     position: relative;
-    z-index: 10;
+    z-index: 1;
     height: 100%;
     width: 100%;
 }
