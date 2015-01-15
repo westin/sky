@@ -24,7 +24,7 @@ html {
     left: -15%;
     top: -15%;
     overflow: hidden;
-    opacity: 0.3;
+    opacity: 0.5;
     background-image: url(noise3.png);
     background-repeat: repeat;
     content: '';
