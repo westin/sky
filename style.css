@@ -8,40 +8,35 @@ html {
        radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0.1) 0%, rgba(11,2,16,0.00) 80%);
 	/*background-image: radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 50%);*/
 }
-
 #container {
-	height: 100%;
-	width: 100%;
-	overflow: hidden;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
 }
-
 #noise {
-  	-webkit-animation: grainy 2s steps(4) infinite;
-  	-moz-animation: grainy 2s steps(4) infinite;
-  	-ms-animation: grainy 2s steps(4) infinite;
-  	animation: grainy 2s steps(4) infinite;
-  	position: fixed;
-	height: 132%;
-	width: 132%;
-	left: -15%;
-	top: -15%;
-	overflow: hidden;
-	opacity: 0.3;
-	background-image: url(noise3.png);
-	background-repeat: repeat;
-	content: '';
-	display: block;
-	z-index: 1;
+    -webkit-animation: grainy 2s steps(4) infinite;
+    -moz-animation: grainy 2s steps(4) infinite;
+    -ms-animation: grainy 2s steps(4) infinite;
+    animation: grainy 2s steps(4) infinite;
+    position: fixed;
+    height: 132%;
+    width: 132%;
+    left: -15%;
+    top: -15%;
+    overflow: hidden;
+    opacity: 0.5;
+    background-image: url(noise3.png);
+    background-repeat: repeat;
+    content: '';
+    display: block;
+    z-index: 1;
 }
-
 canvas {
-	position: relative;
-	z-index: 10;
+    position: relative;
+    z-index: 10;
     height: 100%;
     width: 100%;
 }
-
-
 @-webkit-keyframes 'grainy' {
     0 {
         -webkit-transform: translate(0, 0);
@@ -77,8 +72,6 @@ canvas {
         -webkit-transform: translate(8%, -3%);
     }
 }
-
-
 /*
 @-webkit-keyframes 'grainy' {
     0 {
@@ -115,8 +108,6 @@ canvas {
         -webkit-transform: translate(0, 0);
     }
 }*/
-
-
 /*
 @-moz-keyframes grainy {
     0% {
