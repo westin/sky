@@ -1,9 +1,21 @@
     // The amount of symbol we want to place;
-    var count = 100;
+    var count = 40;
     var starList = []
     var userStarList = []
     var lineHash = {}
-    tool.minDistance = 200;
+    var closestMouseStars = [];
+    var mouseLoc = null;
+
+
+    var blueMod = count * 100;
+    var redMod = count * 100;
+
+    console.log('blue ' + blueMod)
+    console.log('red ' + redMod)
+
+    var whiteCount = 0;
+    var blueCount = 0;
+    var redCount = 0;
 
     // Create a symbol, which we will use to place instances of later:
     var path = new Path.Circle({
@@ -86,25 +98,33 @@
 
     for (var i = 0; i < count; i++) {
 
-        if (i % (count * 0.2) == 0) {
+        if (i % blueMod == 0) {
             var center = Point.random() * view.size;
             var placed = symbol2.place(center);
             var scale = (Math.random() * (0.5)) + 1;
-            console.log(i)
+            blueCount += 1;
         }
-        if (i % (count * 0.9) == 0) {
+        else if (i % redMod == 0) {
             var center = Point.random() * view.size;
             var placed = symbol3.place(center);
             var scale = (Math.random() * (0.5)) + 1;
-            console.log(i)
+            redCount += 1;
         } else {
             var center = Point.random() * view.size;
             var placed = symbol.place(center);
             var scale = (i + 1) / count;
+            whiteCount += 1;
         }
         placed.scale(scale);
 
         starList.push(placed);
+
+        var starLine = new Path.Line(mouseLoc, center);
+        starLine.strokeColor = 'white';
+        starLine.strokeWidth = 0.1;
+
+        closestMouseStars.push(starLine);
+
 
         placed.onFrame = function(event) {
             if (event.count % 5 == 0) {
@@ -125,12 +145,18 @@
         }
 
         placed.onMouseEnter = function(event) {
-            this.scale(1.5);
+            // this.scale(1.5);
         }
     }
 
+    console.log('blueCount: ' + blueCount);
+    console.log('redCount: ' + redCount);
+    console.log('whiteCount: ' + whiteCount);
+
+
     function onKeyDown(event) {
-        if (event.key == 'space') {}
+        if (event.key == 'space') {
+        }
     }
 
     // function onMouseDown(event) {
@@ -156,33 +182,22 @@
     // }
 
     function onMouseMove(event) {
-        // if(userStarList.length == 0){
-        //     userStarList.push('0');
-        // } else {
-        //     var clickStar = symbol.place(event.point);
-        //     clickStar.scale((Math.random() * 2) + 1);
-        //     userStarList.push(clickStar);
-        //     var threshold = 2000;
-        //     if (Math.abs(clickStar.position.y - userStarList[userStarList.length-2].position.y) < threshold && 
-        //         Math.abs(clickStar.position.x - userStarList[userStarList.length-2].position.x) < threshold){
-
-        //         var line = new Path.Line( clickStar.position, userStarList[userStarList.length-2].position ) ;
-        //         line.strokeColor = new Color(.9, .9, .9, .05);
-        //         line.strokeWidth = 1;
-        //         line.smooth();
-        //     } else{
-        //         console.log(nothin);
-        //     }
-        // }
-
+        mouseLoc = event.point;
     }
 
     function onFrame(event) {
 
         for (var i = 0; i < starList.length; i++) {
             var item = starList[i];
-            item.position += new Point(item.scaling.x * 0.02, 0.0);
+            item.position += new Point(item.scaling.x * 1.02, 0.0);
             keepInView(item);
+        }
+
+        for (var i = 0, j = closestMouseStars.length; i < j; i++) {
+            var line = closestMouseStars[i];
+            line.segments[0].point = starList[i].position
+            line.segments[1].point = mouseLoc
+            var distance 
         }
 
         // for (var i = 0; i < userStarList.length; i++) {
