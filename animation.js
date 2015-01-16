@@ -78,6 +78,24 @@
     }
 
 
+    var dot = new Path.Circle({
+        center: new Point(0, 0),
+        radius: 0.1,
+        fillColor: new Color(1, 1, 1, 0.7)
+    });
+    var dotSymbol = new Symbol(dot);
+
+    for (var i = 0; i < 3400; i++) {
+        var center = Point.random() * view.size;
+        var placed = dotSymbol.place(center);
+        if(i % 10 == 0){
+            placed.scale(Math.abs(1 - (i * 0.001)))
+            // placed.style = new Color(1, 1, 1, 1);
+        }
+    }
+
+
+
 //================================================================================//
 // blue stars                                                                     //
 //================================================================================//
@@ -194,7 +212,7 @@
         // white stars
         for (var i = 0; i < whiteStarList.length; i++) {
             var item = whiteStarList[i];
-            item.position += new Point(item.scaling.x * 0.12, 0.0);
+            item.position += new Point(item.scaling.x * 0.32, 0.0);
             keepInView(item);
         }
 
