@@ -236,7 +236,7 @@
     }
 
     function onMouseMove(event) {
-        mouseLoc = event.point;
+        // mouseLoc = event.point;
     }
 
     function onFrame(event) {
