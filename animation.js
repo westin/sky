@@ -4,7 +4,7 @@
 
     // white star variables
     var whiteStarList = []
-    var whiteCount = 80;
+    var whiteCount = 50;
 
     // blue star variables
     var blueStarList = []
@@ -12,7 +12,7 @@
 
     // red star variables
     var orangeStarList = []
-    var orangeCount = 3;
+    var orangeCount = 4;
 
 
 //================================================================================//
@@ -52,24 +52,24 @@
         placed.scale(scale);
         whiteStarList.push(placed);
 
-        var starLine = new Path.Line(mouseLoc, center);
-        starLine.strokeColor = new Color(1, 1, 1, 0);
-        starLine.strokeWidth = 0.3;
+        // var starLine = new Path.Line(mouseLoc, center);
+        // starLine.strokeColor = new Color(1, 1, 1, 0);
+        // starLine.strokeWidth = 0.3;
 
-        closestMouseStars.push(starLine);
+        // closestMouseStars.push(starLine);
 
         placed.onFrame = function(event) {
             if (event.count % 5 == 0) {
                 for (var i = 0; i < whiteStarList.length; i++) {
                     var item = whiteStarList[i];
-                    if (item.opacity == 0.8) {
+                    if (item.opacity == 0.7) {
                         item.opacity = 1;
                     } else {
                         var random = Math.floor(Math.random() * (whiteStarList.length - 1)) + 3;
                         // console.log(random)
                         // console.log(random)
-                        if (i % random == 0 || i == 0) {
-                            item.opacity = 0.8;
+                        if (i % random == 0) {
+                            item.opacity = 0.7;
                         }
                     }
                 }
@@ -78,21 +78,53 @@
     }
 
 
-    var dot = new Path.Circle({
-        center: new Point(0, 0),
-        radius: 0.1,
-        fillColor: new Color(1, 1, 1, 0.7)
-    });
-    var dotSymbol = new Symbol(dot);
+    // var dot = new Path.Circle({
+    //     center: new Point(0, 0),
+    //     radius: 0.1,
+    //     fillColor: new Color(1, 1, 1, 1)
+    // });
+    // var dotSymbol = new Symbol(dot);
 
-    for (var i = 0; i < 3400; i++) {
-        var center = Point.random() * view.size;
-        var placed = dotSymbol.place(center);
-        if(i % 10 == 0){
-            placed.scale(Math.abs(1 - (i * 0.001)))
-            // placed.style = new Color(1, 1, 1, 1);
-        }
-    }
+    // for (var i = 0; i < 4000; i++) {
+    //     var center = Point.random() * view.size;
+    //     var placed = dotSymbol.place(center);
+    //     if(i % 10 == 0){
+    //         placed.scale(Math.abs(1 - (i * 0.001)))
+    //         // placed.style = new Color(1, 1, 1, 1);
+    //     }
+    // }
+
+    // var blueDot = new Path.Circle({
+    //     center: new Point(0, 0),
+    //     radius: .1,
+    //     fillColor: new Color(0.29, 0.32, 0.37, 1)
+    // });
+    // var blueDotSymbol = new Symbol(blueDot);
+
+    // for (var i = 0; i < 10; i++) {
+    //     var center = Point.random() * view.size;
+    //     var placed = blueDotSymbol.place(center);
+    //     // if(i % 10 == 0){
+    //     //     placed.scale(Math.abs(1 - (i * 0.001)))
+    //     //     // placed.style = new Color(1, 1, 1, 1);
+    //     // }
+    // }
+
+    // var superBlueDot = new Path.Circle({
+    //     center: new Point(0, 0),
+    //     radius: 0.3,
+    //     fillColor: new Color(0.22, 0.29, 0.55, 1)
+    // });
+    // var superBlueDotSymbol = new Symbol(superBlueDot);
+
+    // for (var i = 0; i < 1000; i++) {
+    //     var center = Point.random() * view.size;
+    //     var placed = superBlueDotSymbol.place(center);
+    //     // if(i % 10 == 0){
+    //     //     placed.scale(Math.abs(1 - (i * 0.001)))
+    //     //     // placed.style = new Color(1, 1, 1, 1);
+    //     // }
+    // }
 
 
 
@@ -212,25 +244,25 @@
         // white stars
         for (var i = 0; i < whiteStarList.length; i++) {
             var item = whiteStarList[i];
-            item.position += new Point(item.scaling.x * 0.32, 0.0);
+            item.position += new Point(item.scaling.x * 0.32, item.scaling.x * -0.10);
             keepInView(item);
         }
 
-        var threshold = 150;
-        for (var j = 0, originalLength = closestMouseStars.length; j < originalLength; j++) {
-            var line = closestMouseStars[j];
-            line.sendToBack();
-            line.segments[0].point = whiteStarList[j].position;
-            line.segments[1].point = mouseLoc;
-            var xDistance = Math.abs(line.segments[0].point.x - line.segments[1].point.x);
-            var yDistance = Math.abs(line.segments[0].point.y - line.segments[1].point.y);
-            if(xDistance > threshold || yDistance > threshold){
-                line.opacity = 0;
-            } else {
-                line.opacity = 1;
-                var distanceAlpha = 1 - ((xDistance + yDistance) * .007)
-                var distanceColor = new Color(1, 1, 1, distanceAlpha);
-                line.strokeColor = distanceColor;
+        // var threshold = 150;
+        // for (var j = 0, originalLength = closestMouseStars.length; j < originalLength; j++) {
+        //     var line = closestMouseStars[j];
+        //     line.sendToBack();
+        //     line.segments[0].point = whiteStarList[j].position;
+        //     line.segments[1].point = mouseLoc;
+        //     var xDistance = Math.abs(line.segments[0].point.x - line.segments[1].point.x);
+        //     var yDistance = Math.abs(line.segments[0].point.y - line.segments[1].point.y);
+        //     if(xDistance > threshold || yDistance > threshold){
+        //         line.opacity = 0;
+        //     } else {
+        //         line.opacity = 1;
+        //         var distanceAlpha = 1 - ((xDistance + yDistance) * .007)
+        //         var distanceColor = new Color(1, 1, 1, distanceAlpha);
+        //         line.strokeColor = distanceColor;
 
                 // console.log(endAlpha)
                 // line.strokeColor = {
@@ -246,8 +278,8 @@
                 //     destination: orangePath.bounds.rightCenter,
                 // };
                 // line.strokeColor = end;
-            }
-        }
+        //     }
+        // }
 
         // // blue stars
         // for (var i = 0; i < blueStarList.length; i++) {
