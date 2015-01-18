@@ -62,14 +62,14 @@
             if (event.count % 5 == 0) {
                 for (var i = 0; i < whiteStarList.length; i++) {
                     var item = whiteStarList[i];
-                    if (item.opacity == 0.7) {
+                    if (item.opacity == 0.8) {
                         item.opacity = 1;
                     } else {
                         var random = Math.floor(Math.random() * (whiteStarList.length - 1)) + 3;
                         // console.log(random)
                         // console.log(random)
                         if (i % random == 0) {
-                            item.opacity = 0.7;
+                            item.opacity = 0.8;
                         }
                     }
                 }
@@ -228,11 +228,11 @@
         var placed = whiteStarSymbol.place(center);
         whiteStarList.push(placed);
 
-        var starLine = new Path.Line(mouseLoc, center);
-        starLine.strokeColor = 'white';
-        starLine.strokeWidth = 0.3;
+        // var starLine = new Path.Line(mouseLoc, center);
+        // starLine.strokeColor = 'white';
+        // starLine.strokeWidth = 0.3;
 
-        closestMouseStars.push(starLine);
+        // closestMouseStars.push(starLine);
     }
 
     function onMouseMove(event) {
@@ -244,7 +244,7 @@
         // white stars
         for (var i = 0; i < whiteStarList.length; i++) {
             var item = whiteStarList[i];
-            item.position += new Point(item.scaling.x * 0.32, item.scaling.x * -0.10);
+            item.position += new Point(item.scaling.x * 0.07, item.scaling.x * -0.01);
             keepInView(item);
         }
 

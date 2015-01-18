@@ -3,9 +3,9 @@ html {
     /*background-image: radial-gradient(73% 55%, RGBA(39, 32, 69, 0.3) 0%, rgba(0,0,0,0.00) 90%);*/
     /*background-image: radial-gradient(100% 100%, RGBA(39, 32, 69, 1) 99%, rgba(0,0,0,0.00) 90%);*/
     background-image: radial-gradient(at 70%, rgba(39, 32, 69, 0.4) 0%, rgba(11, 2, 16, 0.00) 80%),
-    	radial-gradient(at 70% 100%, rgba(82,48,97,0.4) 0%, rgba(11,2,16,0.00) 80%),
+    	radial-gradient(farthest-side at 70% 200%, rgba(82,48,97,0.4) 30%, rgba(11,2,16,0.00) 80%),
     	radial-gradient(ellipse closest-corner at 60% 40%, rgba(47,44,111,0.3) 0%, rgba(16,15,39, 0.4) 90%),
-       radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0.15) 0%, rgba(11,2,16,0.00) 80%);
+       radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0) 0%, rgba(11,2,16,0.00) 80%);
 	/*background-image: radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 50%);*/
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
@@ -43,22 +43,22 @@ h1 {
     -moz-animation: grainy 2s steps(4) infinite;
     -ms-animation: grainy 2s steps(4) infinite;
     animation: grainy 2s steps(4) infinite;*/
-    position: fixed;
-    height: 132%;
-    width: 132%;
-    left: -15%;
-    top: -15%;
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
     overflow: hidden;
-    opacity: 0.7;
+    opacity: 0.6;
     background-image: url(test3.png);
     background-repeat: repeat;
     content: '';
     display: block;
-    z-index: 2;
+    z-index: 1;
 }
 canvas {
     position: relative;
-    z-index: 1;
+    z-index: 2;
     height: 100%;
     width: 100%;
 }
