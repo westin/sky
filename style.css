@@ -22,42 +22,44 @@ html {
 h1 {
     color: white;
     opacity: 0.8;
-    text-align: center;
+    text-align: left;
     font-weight: 700;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.39);
-    margin-bottom: 0px;
+    margin-bottom: 2px;
+    font-size: 2em;
 }
 
-#content {
-    margin: auto;
-    height: 100px;
-    position: absolute;
-    top: 0;
-    bottom: 0; 
-    right: auto; 
-    left: 40px;
-    text-align: left;
-    z-index: 4;
-    display: inline-block;
-}
-
-#title {
-    float: left;
-}
-
-#description {
-    float: right;
+h2 {
+    color: rgba(255, 255, 255, 0.40);
+    text-transform: uppercase;
+    letter-spacing: 3.4px;
+    margin: 0px;
 }
 
 p {
+    margin-top: 10px;
+    font-family: "elena-web-basic";
     color: white;
+    text-align: left;
+    display: block;
+    font-size: 15px;
 }
 
-p#tagline {
-    color: rgba(255, 255, 255, 0.30);
-    text-transform: uppercase;
-    letter-spacing: 3px;
-    margin: 0px;
+#content {
+    height: 100px;
+    position: absolute;
+    margin-top: 20%;
+    left: 70px;
+    width: 500px;
+    z-index: 4;
+}
+
+#title {
+    display: block;
+}
+
+#description {
+    width: 300px;
 }
 
 #noise {
