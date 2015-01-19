@@ -19,13 +19,17 @@ html {
     z-index: 3;
 }
 
+#title {
+    display: block;
+}
+
 h1 {
     color: white;
     opacity: 0.8;
     text-align: left;
     font-weight: 700;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.39);
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     font-size: 2em;
 }
 
@@ -36,14 +40,6 @@ h2 {
     margin: 0px;
 }
 
-p {
-    margin-top: 10px;
-    font-family: "elena-web-basic";
-    color: white;
-    text-align: left;
-    display: block;
-    font-size: 15px;
-}
 
 #content {
     height: 100px;
@@ -54,13 +50,19 @@ p {
     z-index: 4;
 }
 
-#title {
-    display: block;
-}
-
 #description {
+    margin-top: 15px;
     width: 300px;
 }
+
+p {
+    font-family: "elena-web-basic";
+    color: white;
+    text-align: left;
+    display: block;
+    font-size: 15px;
+}
+
 
 #noise {
 /*    -webkit-animation: grainy 2s steps(4) infinite;
