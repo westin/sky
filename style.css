@@ -23,7 +23,7 @@ html {
     position: absolute;
     z-index: 4;
 
-    height: 150px;
+    height: 350px;
     overflow: auto;
     margin: auto;
     top: 0; 
@@ -35,7 +35,7 @@ html {
 #title {
     display: block;
     width: 100%;
-    padding-left: 10px;
+    /*padding-left: 10px;*/
 }
 
 canvas#westin{
@@ -71,22 +71,25 @@ h2 {
 #description {
     clear: both;
     margin-top: 60px;
-    width: 445px;
-    padding-left: 10px;
-    border-left: 1px solid rgba(255, 255, 255, 0.20);
+    width: 450px;
+    /*padding-left: 10px;*/
+    /*border-left: 1px solid rgba(255, 255, 255, 0.20);*/
 }
 
 p {
     font-family: "europa";
-    color: rgba(255, 255, 255, 0.70);
-    text-align: justify;
+    color: rgba(255, 255, 255, 0.40);
+    text-align: left;
     display: block;
-    font-size: 15px;
-    line-height: 20px;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    line-height: 22px;
 }
 
 span.highlight {
-    color: white;
+    color: rgba(255, 255, 255, 0.60)
+    /*border-bottom: 1px dotted rgba(255, 255, 255, 0.15);*/
 }
 
 
