@@ -4,7 +4,7 @@
 
     // white star variables
     var whiteStarList = []
-    var whiteCount = 60;
+    var whiteCount = 80;
 
     // blue star variables
     var blueStarList = []
@@ -15,9 +15,9 @@
     var orangeCount = 4;
 
 
-//================================================================================//
-// white stars                                                                    //
-//================================================================================//
+    //================================================================================//
+    // white stars                                                                    //
+    //================================================================================//
     var whitePath = new Path.Circle({
         center: new Point(0, 0),
         radius: 13,
@@ -42,41 +42,6 @@
     };
 
     var whiteStarSymbol = new Symbol(whitePath);
-
-
-    // WHITE STAR CREATION
-    for (var i = 0; i < whiteCount; i++) {
-        var center = Point.random() * view.size;
-        var placed = whiteStarSymbol.place(center);
-        var scale = (i + 1) / whiteCount;
-        placed.scale(scale);
-        whiteStarList.push(placed);
-
-        // var starLine = new Path.Line(mouseLoc, center);
-        // starLine.strokeColor = new Color(1, 1, 1, 0);
-        // starLine.strokeWidth = 0.3;
-
-        // closestMouseStars.push(starLine);
-
-        placed.onFrame = function(event) {
-            if (event.count % 7 == 0) {
-                for (var i = 0; i < whiteStarList.length; i++) {
-                    var item = whiteStarList[i];
-                    if (item.opacity == 0.75) {
-                        item.opacity = 1;
-                    } else {
-                        var random = Math.floor(Math.random() * (whiteStarList.length - 1)) + 3;
-                        // console.log(random)
-                        // console.log(random)
-                        if (i % random == 0) {
-                            item.opacity = 0.75;
-                        }
-                    }
-                }
-            }
-        }
-    }
-
 
     // var dot = new Path.Circle({
     //     center: new Point(0, 0),
@@ -128,9 +93,9 @@
 
 
 
-//================================================================================//
-// blue stars                                                                     //
-//================================================================================//
+    //================================================================================//
+    // blue stars                                                                     //
+    //================================================================================//
     var bluePath = new Path.Circle({
         center: new Point(0, 0),
         radius: 43,
@@ -159,22 +124,10 @@
 
 
 
-    for (var i = 0; i < blueCount; i++) {
-        var center = Point.random() * view.size;
-        var placed = blueStarSymbol.place(center);
-        var scale = (i + 1) * (blueCount * .02);
-        placed.scale(scale);
-        blueStarList.push(placed);
 
-    }
-
-
-
-
-
-//================================================================================//
-// orange stars                                                                   //
-//================================================================================//
+    //================================================================================//
+    // orange stars                                                                   //
+    //================================================================================//
 
     var orangePath = new Path.Circle({
         center: new Point(0, 0),
@@ -202,28 +155,16 @@
 
     var orangeStarSymbol = new Symbol(orangePath);
 
-
-
-    for (var i = 0; i < orangeCount; i++) {
-        var center = Point.random() * view.size;
-        var placed = orangeStarSymbol.place(center);
-        var scale = (i + 1) / orangeCount;
-        placed.scale(scale);
-        orangeStarList.push(placed);
-
-    }
-
-//================================================================================//
-// real magic                                                                     //
-//================================================================================//
+    //================================================================================//
+    // real magic                                                                     //
+    //================================================================================//
 
 
     function onKeyDown(event) {
-        if (event.key == 'space') {
-        }
+        if (event.key == 'space') {}
     }
 
-    function onMouseDown(event){
+    function onMouseDown(event) {
         // var center = event.point;
         // var placed = whiteStarSymbol.place(center);
         // whiteStarList.push(placed);
@@ -239,61 +180,52 @@
         // mouseLoc = event.point;
     }
 
-    function onFrame(event) {
 
-        // white stars
-        for (var i = 0; i < whiteStarList.length; i++) {
-            var item = whiteStarList[i];
-            item.position += new Point(item.scaling.x * 0.07, item.scaling.x * -0.01);
-            keepInView(item);
+    window.onresize = redoStars;
+
+    var resizeTimeout = 0;
+    function redoStars(event) {
+        clearTimeout(resizeTimeout);
+        resizeTimeout = setTimeout(shuffle, 500);
+    }
+
+    function onFrame(event) {
+        if (event.count == 0) {
+            init();
+        }
+        else if(resizeTimeout != 0 && project.activeLayer.opacity > 0.06){
+            project.activeLayer.opacity -= 0.06;
         }
 
-        // var threshold = 150;
-        // for (var j = 0, originalLength = closestMouseStars.length; j < originalLength; j++) {
-        //     var line = closestMouseStars[j];
-        //     line.sendToBack();
-        //     line.segments[0].point = whiteStarList[j].position;
-        //     line.segments[1].point = mouseLoc;
-        //     var xDistance = Math.abs(line.segments[0].point.x - line.segments[1].point.x);
-        //     var yDistance = Math.abs(line.segments[0].point.y - line.segments[1].point.y);
-        //     if(xDistance > threshold || yDistance > threshold){
-        //         line.opacity = 0;
-        //     } else {
-        //         line.opacity = 1;
-        //         var distanceAlpha = 1 - ((xDistance + yDistance) * .007)
-        //         var distanceColor = new Color(1, 1, 1, distanceAlpha);
-        //         line.strokeColor = distanceColor;
+        else if(resizeTimeout == 0 && project.activeLayer.opacity < 1){
+            project.activeLayer.opacity += 0.06;
+        }
 
-                // console.log(endAlpha)
-                // line.strokeColor = {
-                //     gradient: {
-                //         stops: [
-                //             ['white', 0.0],
-                //             [end, 0.5]
-                //         ],
-                //         origin: line.segments[0].point,
-                //         destination: line.segments[1].point
-                //     },
-                //     origin: orangePath.bounds.center,
-                //     destination: orangePath.bounds.rightCenter,
-                // };
-                // line.strokeColor = end;
-        //     }
-        // }
+        // move white stars
+        for (var i = 0; i < whiteStarList.length; i++) {
+            var item = whiteStarList[i];
+            if(event.count % 7 == 0){
+                // item.position += new Point(item.scaling.x * 0.35, item.scaling.x * -0.01);
+                item.translate(new Point(item.scaling.x * 0.35, item.scaling.x * -0.01))
+            }
+            if (event.count % 10 == 0) {
+                flickr(item);
+            }
+            keepInView(item);
+        }
+    }
 
-        // // blue stars
-        // for (var i = 0; i < blueStarList.length; i++) {
-        //     var item = blueStarList[i];
-        //     item.position += new Point(0.02, 0.0);
-        //     keepInView(item);
-        // }
 
-        // // // red stars
-        // for (var i = 0; i < orangeStarList.length; i++) {
-        //     var item = orangeStarList[i];
-        //     item.position += new Point(.03, 0.0);
-        //     keepInView(item);
-        // }
+    function flickr(item){
+        if (item.opacity >= 0.75 && item.opacity < 1) {
+            item.opacity = 1;
+        }
+        else if (item.opacity == 1) {
+            var random = Math.floor(Math.random() * (whiteStarList.length - 1)) + 3;
+            if (random % 15 == 0) {
+                item.opacity = 0.75;
+            }
+        }
     }
 
     function keepInView(item) {
@@ -314,5 +246,57 @@
 
         if (position.y < -itemBounds.height) {
             position.y = bounds.height + itemBounds.height / 2;
+        }
+    }
+
+    function shuffle(){
+        project.activeLayer.opacity = 0;
+        for (var i = 0; i < blueStarList.length; i++) {
+            shuffleOne(blueStarList[i]);
+        }
+        for (var i = 0; i < whiteStarList.length; i++) {
+            shuffleOne(whiteStarList[i]);
+        }
+        for (var i = 0; i < orangeStarList.length; i++) {
+            shuffleOne(orangeStarList[i]);
+        }
+        resizeTimeout = 0
+    }
+
+    function shuffleOne(item){
+        item.position = Point.random() * view.size;
+    }
+
+
+    function init() {
+        // project.clear();
+        // WHITE STAR CREATION
+        project.activeLayer.opacity = 0;
+        for (var i = 0; i < whiteCount; i++) {
+            var center = Point.random() * view.size;
+            var placed = whiteStarSymbol.place(center);
+            var scale = (i + 1) / whiteCount;
+            placed.scale(scale);
+            whiteStarList.push(placed);
+
+        }
+        // BLUE STAR CREATION
+        for (var i = 0; i < blueCount; i++) {
+            var center = Point.random() * view.size;
+            var placed = blueStarSymbol.place(center);
+            var scale = (i + 1) * (blueCount * .02);
+            placed.scale(scale);
+            blueStarList.push(placed);
+
+
+        }
+        // ORANGE STAR CREATION
+        for (var i = 0; i < orangeCount; i++) {
+            var center = Point.random() * view.size;
+            var placed = orangeStarSymbol.place(center);
+            var scale = (i + 1) / orangeCount;
+            placed.scale(scale);
+            orangeStarList.push(placed);
+
         }
     }
