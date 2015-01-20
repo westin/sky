@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="style.css">
     <script src="//use.typekit.net/tlf2pwb.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
+    <script src='http://code.jquery.com/jquery-1.5.1.min.js'></script>
 
 </head>
 
@@ -17,17 +18,45 @@
     <div id="container">
         <div id="content">
             <div id="title">
-                <h1>Westin Lohne</h1>
+                <canvas id="westin" height="46px" width="228px"></canvas>
                 <h2>product designer</h2>
             </div>
             <div id="description">
-                <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nullam feugiat velit ut interdum dignissim. Nulla facilisi. Nulla facilisi. Nunc eget neque vitae nunc finibus vulputate. Morbi gravida mauris a augue tempus, in maximus sapien molestie. Suspendisse potenti. Praesent vestibulum turpis id ligula imperdiet venenatis ut ac velit. Sed ultrices lorem vitae felis ultrices posuere ac sit amet eros. Sed vulputate lacus et purus pretium, at faucibus turpis fringilla. Praesent nec dignissim dui</p>
+                <p>I'm a <span class="highlight">20 year old</span> student at <span class="highlight">Carnegie Mellon University</span> studying <span class="highlight">Human-Computer Interaction</span>. In the past, I've interned at <span class="highlight">Etsy as a UX Researcher</span>. This summer, I'll be at <span class="highlight">Facebook as a Product Design intern</span>.</p>
             </div>
         </div>
         <div id="noise">
         </div>
                 <canvas id="background" hidpi="on" resize="true" keepalive="true"></canvas>
     </div>
+
+    <script>
+$(document).ready(function() {
+    var hidefCanvas = $('#westin')[0];
+    var hidefContext = hidefCanvas.getContext('2d');
+
+    if (window.devicePixelRatio) {
+        var hidefCanvasWidth = $(hidefCanvas).attr('width');
+        var hidefCanvasHeight = $(hidefCanvas).attr('height');
+        var hidefCanvasCssWidth = hidefCanvasWidth;
+        var hidefCanvasCssHeight = hidefCanvasHeight;
+
+        $(hidefCanvas).attr('width', hidefCanvasWidth * window.devicePixelRatio);
+        $(hidefCanvas).attr('height', hidefCanvasHeight * window.devicePixelRatio);
+        $(hidefCanvas).css('width', hidefCanvasCssWidth);
+        $(hidefCanvas).css('height', hidefCanvasCssHeight);
+        hidefContext.scale(window.devicePixelRatio, window.devicePixelRatio);
+    }
+
+    hidefContext.font = "Bold 2em 'Helvetica Neue'";
+
+    hidefContext.fillStyle = "white"; 
+    hidefContext.fillRect(0,0,350,100); 
+
+    hidefContext.globalCompositeOperation = 'destination-out'; 
+    hidefContext.fillText("Westin Lohne", 10, 34);
+});
+    </script>
 </body>
 
 </html>
