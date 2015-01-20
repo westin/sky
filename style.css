@@ -139,7 +139,8 @@ canvas#background {
         background: rgba(255,255,255,0.1);
         border-radius: 2px;
         padding: 10px;
-        width: 80%;
+        width: auto;
+        display: inline-block;
     }
 
     h1{
@@ -157,7 +158,7 @@ canvas#background {
     }
 
     #description {
-        padding-left: 10px;
+        padding-left: 0;
 /*        padding-right: 30px;
         width: 100%;
         max-width: 350px;*/
