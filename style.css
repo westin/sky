@@ -92,12 +92,7 @@ span.highlight {
     /*border-bottom: 1px dotted rgba(255, 255, 255, 0.15);*/
 }
 
-
 #noise {
-/*    -webkit-animation: grainy 2s steps(4) infinite;
-    -moz-animation: grainy 2s steps(4) infinite;
-    -ms-animation: grainy 2s steps(4) infinite;
-    animation: grainy 2s steps(4) infinite;*/
     position: absolute;
     height: 100%;
     width: 100%;
