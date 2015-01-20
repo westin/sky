@@ -29,7 +29,7 @@ html {
     top: 0; 
     bottom: 0; 
     right: auto; 
-    left: 30px;
+    left: 50px;
 }
 
 #title {
@@ -46,6 +46,7 @@ canvas#westin{
 }
 
 h1 {
+    font-family: "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     color: white;
     opacity: 0.8;
     text-align: left;
@@ -53,6 +54,7 @@ h1 {
     text-shadow: 1px 1px rgba(0, 0, 0, 0.39);
     margin-bottom: 5px;
     font-size: 2em;
+    display: none;
 }
 
 h2 {
@@ -92,12 +94,7 @@ span.highlight {
     /*border-bottom: 1px dotted rgba(255, 255, 255, 0.15);*/
 }
 
-
 #noise {
-/*    -webkit-animation: grainy 2s steps(4) infinite;
-    -moz-animation: grainy 2s steps(4) infinite;
-    -ms-animation: grainy 2s steps(4) infinite;
-    animation: grainy 2s steps(4) infinite;*/
     position: absolute;
     height: 100%;
     width: 100%;
@@ -116,4 +113,75 @@ canvas#background {
     z-index: 2;
     height: 100%;
     width: 100%;
+}
+
+
+
+@media only screen and (max-width : 535px) {
+    #content {
+        left: 20px;
+    }
+}
+
+
+@media only screen and (max-width : 483px) {
+
+    #content {
+        left: 20px;
+        height: 250px;
+        width: 100%;
+    }
+
+    canvas#westin{
+        display: none;
+    }
+
+    #title{
+        background: rgba(255,255,255,0.1);
+        padding: 10px;
+        width: 80%;
+    }
+
+    h1{
+        display: block;
+        margin-left: 0px;
+    }
+
+    h2{
+        margin-bottom: 0px;
+        margin-top: 0px;
+        margin-left: 0px;
+        letter-spacing: 5.4px;
+        float: none;
+    }
+
+    #description {
+        padding-left: 10px;
+/*        padding-right: 30px;
+        width: 100%;
+        max-width: 350px;*/
+        /*min-width: 200px;*/
+        margin-top: 10px;
+        width: 80%;
+    }
+
+    p {
+        letter-spacing: 0.5px;
+        font-size: 15px;
+        line-height: 21px;
+    }
+}
+
+/* Smartphones (portrait) ----------- */
+@media only screen and (max-width : 320px) {
+    #content {
+        margin-top: 100px;
+        height: 100%;
+    }
+
+    p {
+        letter-spacing: 0.5px;
+        font-size: 14px;
+        line-height: 21px;
+    }
 }

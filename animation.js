@@ -59,17 +59,17 @@
         // closestMouseStars.push(starLine);
 
         placed.onFrame = function(event) {
-            if (event.count % 5 == 0) {
+            if (event.count % 7 == 0) {
                 for (var i = 0; i < whiteStarList.length; i++) {
                     var item = whiteStarList[i];
-                    if (item.opacity == 0.8) {
+                    if (item.opacity == 0.75) {
                         item.opacity = 1;
                     } else {
                         var random = Math.floor(Math.random() * (whiteStarList.length - 1)) + 3;
                         // console.log(random)
                         // console.log(random)
                         if (i % random == 0) {
-                            item.opacity = 0.8;
+                            item.opacity = 0.75;
                         }
                     }
                 }
@@ -224,9 +224,9 @@
     }
 
     function onMouseDown(event){
-        var center = event.point;
-        var placed = whiteStarSymbol.place(center);
-        whiteStarList.push(placed);
+        // var center = event.point;
+        // var placed = whiteStarSymbol.place(center);
+        // whiteStarList.push(placed);
 
         // var starLine = new Path.Line(mouseLoc, center);
         // starLine.strokeColor = 'white';
