@@ -22,7 +22,11 @@ html {
 #content {
     position: absolute;
     z-index: 4;
-
+    -webkit-animation: fadein 1.5s; 
+       -moz-animation: fadein 1.5s; 
+        -ms-animation: fadein 1.5s; 
+         -o-animation: fadein 1.5s; 
+            animation: fadein 1.5s;
     height: 170px;
     overflow: auto;
     margin: auto;
@@ -112,6 +116,31 @@ canvas#background {
     z-index: 2;
     height: 100%;
     width: 100%;
+}
+
+@keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-moz-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-webkit-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-ms-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
+}
+
+@-o-keyframes fadein {
+    from { opacity: 0; }
+    to   { opacity: 1; }
 }
 
 
