@@ -4,7 +4,7 @@
 
     // white star variables
     var whiteStarList = []
-    var whiteCount = 60;
+    var whiteCount = 80;
 
     // blue star variables
     var blueStarList = []
