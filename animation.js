@@ -250,6 +250,7 @@
     }
 
     function shuffle(){
+        project.activeLayer.opacity = 0;
         for (var i = 0; i < blueStarList.length; i++) {
             shuffleOne(blueStarList[i]);
         }
