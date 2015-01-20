@@ -183,24 +183,47 @@
 
     window.onresize = redoStars;
 
-    var resizeTimeout;
+    var resizeTimeout = 0;
     function redoStars(event) {
         clearTimeout(resizeTimeout);
-        resizeTimeout = setTimeout(init, 500);
+        resizeTimeout = setTimeout(shuffle, 500);
     }
 
     function onFrame(event) {
         if (event.count == 0) {
             init();
         }
-        // console.log(resizeTimeout)
+        else if(resizeTimeout != 0 && project.activeLayer.opacity > 0.06){
+            project.activeLayer.opacity -= 0.06;
+        }
+
+        else if(resizeTimeout == 0 && project.activeLayer.opacity < 1){
+            project.activeLayer.opacity += 0.06;
+        }
+
         // move white stars
         for (var i = 0; i < whiteStarList.length; i++) {
             var item = whiteStarList[i];
-            item.position += new Point(item.scaling.x * 0.07, item.scaling.x * -0.01);
+            if(event.count % 7 == 0){
+                // item.position += new Point(item.scaling.x * 0.35, item.scaling.x * -0.01);
+                item.translate(new Point(item.scaling.x * 0.35, item.scaling.x * -0.01))
+            }
+            if (event.count % 10 == 0) {
+                flickr(item);
+            }
             keepInView(item);
-            if(resizeTimeout != 0 && item.opacity > 0.1){
-                item.opacity -= 0.1
+        }
+    }
+
+
+    function flickr(item){
+        if (item.opacity >= 0.75 && item.opacity < 1) {
+            item.opacity = 1;
+        }
+        else if (item.opacity == 1) {
+            var random = Math.floor(Math.random() * (whiteStarList.length - 1)) + 3;
+            if (random % 15 == 0) {
+                item.opacity = 0.75;
             }
         }
     }
@@ -226,44 +249,35 @@
         }
     }
 
+    function shuffle(){
+        for (var i = 0; i < blueStarList.length; i++) {
+            shuffleOne(blueStarList[i]);
+        }
+        for (var i = 0; i < whiteStarList.length; i++) {
+            shuffleOne(whiteStarList[i]);
+        }
+        for (var i = 0; i < orangeStarList.length; i++) {
+            shuffleOne(orangeStarList[i]);
+        }
+        resizeTimeout = 0
+    }
+
+    function shuffleOne(item){
+        item.position = Point.random() * view.size;
+    }
+
 
     function init() {
-        project.clear();
+        // project.clear();
         // WHITE STAR CREATION
+        project.activeLayer.opacity = 0;
         for (var i = 0; i < whiteCount; i++) {
             var center = Point.random() * view.size;
             var placed = whiteStarSymbol.place(center);
             var scale = (i + 1) / whiteCount;
             placed.scale(scale);
             whiteStarList.push(placed);
-            placed.opacity = 0;
 
-            placed.onFrame = function(event) {
-                if (event.count % 7 == 0) {
-                    for (var i = 0; i < whiteStarList.length; i++) {
-                        var item = whiteStarList[i];
-                        // console.log(resizeTimeout);
-                        if(resizeTimeout == 0){
-                            if (item.opacity == 0.75) {
-                                item.opacity = 1;
-                            }
-                            else if (item.opacity == 1) {
-                                var random = Math.floor(Math.random() * (whiteStarList.length - 1)) + 3;
-                                // console.log(random)
-                                // console.log(random)
-                                if (i % random == 0) {
-                                    item.opacity = 0.75;
-                                }
-                            }
-                            else if(item.opacity < 0.75){
-                                // console.log(item.opacity)
-                                item.opacity += 0.002;
-                            }
-                        }
-
-                    }
-                }
-            }
         }
         // BLUE STAR CREATION
         for (var i = 0; i < blueCount; i++) {
@@ -272,17 +286,7 @@
             var scale = (i + 1) * (blueCount * .02);
             placed.scale(scale);
             blueStarList.push(placed);
-            placed.opacity = 0;
-            placed.onFrame = function(event) {
-                if(resizeTimeout == 0){
-                    for (var i = 0; i < blueStarList.length; i++) {
-                        var item = blueStarList[i];
-                        if(item.opacity < 1){
-                            item.opacity += 0.002;
-                        }
-                    }
-                }
-            }
+
 
         }
         // ORANGE STAR CREATION
@@ -292,19 +296,6 @@
             var scale = (i + 1) / orangeCount;
             placed.scale(scale);
             orangeStarList.push(placed);
-            placed.opacity = 0;
-
-            placed.onFrame = function(event) {
-                if(resizeTimeout == 0){
-                    for (var i = 0; i < orangeStarList.length; i++) {
-                        var item = orangeStarList[i];
-                        if(item.opacity < 1){
-                            item.opacity += 0.002;
-                        }
-                    }
-                }
-            }
 
         }
-        resizeTimeout = 0
     }
