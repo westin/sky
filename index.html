@@ -10,7 +10,6 @@
     <link rel="stylesheet" href="style.css">
     <script src="//use.typekit.net/tlf2pwb.js"></script>
     <script>try{Typekit.load();}catch(e){}</script>
-    <script src='http://code.jquery.com/jquery-1.5.1.min.js'></script>
 
 </head>
 
@@ -22,40 +21,48 @@
                 <h2>product designer</h2>
             </div>
             <div id="description">
-                <p>I'm <span class="highlight">19 year old</span> student attending <span class="highlight">Carnegie Mellon University</span> studying <span class="highlight">Human-Computer Interaction</span>. <br><br>Last summer, I interned at <span class="highlight">Etsy as a UX Researcher</span>. This summer, I'll intern at <span class="highlight">Facebook as a Product Designer</span>.</p>
+                <p>I'm <span class="highlight">19 year old</span> student attending <span class="highlight">Carnegie Mellon University</span> studying <span class="highlight">Human-Computer Interaction</span>.
+                    <br>
+                    <br>Last summer, I interned at <span class="highlight">Etsy as a UX Researcher</span>. This summer, I'll intern at <span class="highlight">Facebook as a Product Designer</span>.</p>
             </div>
         </div>
         <div id="noise">
         </div>
-                <canvas id="background" hidpi="on" resize="true" keepalive="true"></canvas>
+        <canvas id="background" hidpi="on" resize="true" keepalive="true"></canvas>
     </div>
 
     <script>
-$(document).ready(function() {
-    var hidefCanvas = $('#westin')[0];
-    var hidefContext = hidefCanvas.getContext('2d');
+    (function() {
+        var headerCanvas = document.getElementById("westin");
+        var headerContext = headerCanvas.getContext('2d');
 
-    if (window.devicePixelRatio) {
-        var hidefCanvasWidth = $(hidefCanvas).attr('width');
-        var hidefCanvasHeight = $(hidefCanvas).attr('height');
-        var hidefCanvasCssWidth = hidefCanvasWidth;
-        var hidefCanvasCssHeight = hidefCanvasHeight;
+        if (window.devicePixelRatio) {
 
-        $(hidefCanvas).attr('width', hidefCanvasWidth * window.devicePixelRatio);
-        $(hidefCanvas).attr('height', hidefCanvasHeight * window.devicePixelRatio);
-        $(hidefCanvas).css('width', hidefCanvasCssWidth);
-        $(hidefCanvas).css('height', hidefCanvasCssHeight);
-        hidefContext.scale(window.devicePixelRatio, window.devicePixelRatio);
-    }
+            var headerCanvasWidth = parseInt(headerCanvas.getAttribute('width'));
+            var headerCanvasHeight = parseInt(headerCanvas.getAttribute('height'));
+            var headerCanvasCssWidth = headerCanvasWidth;
+            var headerCanvasCssHeight = headerCanvasHeight;
 
-    hidefContext.font = "Bold 2em 'Helvetica Neue'";
+            headerCanvas.setAttribute("width", headerCanvasWidth * window.devicePixelRatio);
+            headerCanvas.setAttribute("height", headerCanvasHeight * window.devicePixelRatio);
 
-    hidefContext.fillStyle = "white"; 
-    hidefContext.fillRect(0,0,350,100); 
 
-    hidefContext.globalCompositeOperation = 'destination-out'; 
-    hidefContext.fillText("Westin Lohne", 10, 34);
-});
+            headerCanvas.style.width = headerCanvasCssWidth + 'px';
+            headerCanvas.style.height = headerCanvasCssHeight + 'px';
+
+            headerContext.scale(window.devicePixelRatio, window.devicePixelRatio);
+
+
+        }
+
+        headerContext.font = "Bold 2em 'Helvetica Neue'";
+
+        headerContext.fillStyle = "white";
+        headerContext.fillRect(0, 0, 230, 50);
+
+        headerContext.globalCompositeOperation = 'destination-out';
+        headerContext.fillText("Westin Lohne", 10, 34);
+    })();
     </script>
 </body>
 
