@@ -5,8 +5,8 @@ html {
     background-image: radial-gradient(at 70%, rgba(39, 32, 69, 0.4) 0%, rgba(11, 2, 16, 0.00) 80%),
     	radial-gradient(farthest-side at 70% 200%, rgba(82,48,97,0.4) 30%, rgba(11,2,16,0.00) 80%),
     	radial-gradient(ellipse closest-corner at 60% 40%, rgba(47,44,111,0.3) 0%, rgba(16,15,39, 0.4) 90%),
-       radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0) 0%, rgba(11,2,16,0.00) 80%);
-	/*background-image: radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 50%);*/
+        radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0) 0%, rgba(11,2,16,0.00) 80%),
+	    radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 90%);
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
 }
@@ -19,48 +19,79 @@ html {
     z-index: 3;
 }
 
+#content {
+    position: absolute;
+    z-index: 4;
+
+    height: 170px;
+    overflow: auto;
+    margin: auto;
+    top: 0; 
+    bottom: 0; 
+    right: auto; 
+    left: 30px;
+}
+
+#title {
+    display: block;
+    width: 100%;
+    /*padding-left: 10px;*/
+}
+
+canvas#westin{
+/*    width: 100%;
+    height: 10px;*/
+    border-radius: 3px;
+    float: left;
+}
+
 h1 {
     color: white;
     opacity: 0.8;
     text-align: left;
     font-weight: 700;
     text-shadow: 1px 1px rgba(0, 0, 0, 0.39);
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     font-size: 2em;
 }
 
 h2 {
-    color: rgba(255, 255, 255, 0.40);
+    color: rgba(255, 255, 255, 0.9);
+    /*color: red;*/
+    /*color: rgba(0, 0, 0, 0.70);*/
     text-transform: uppercase;
-    letter-spacing: 3.4px;
-    margin: 0px;
-}
-
-p {
-    margin-top: 10px;
-    font-family: "elena-web-basic";
-    color: white;
-    text-align: left;
-    display: block;
-    font-size: 15px;
-}
-
-#content {
-    height: 100px;
-    position: absolute;
-    margin-top: 20%;
-    left: 70px;
-    width: 500px;
-    z-index: 4;
-}
-
-#title {
-    display: block;
+    letter-spacing: 5px;
+    margin-left: 15px;
+    margin-top: 18px;
+    /*position: absolute;*/
+    font-size: 0.8em;
+    float: left;
 }
 
 #description {
-    width: 300px;
+    clear: both;
+    margin-top: 60px;
+    width: 450px;
+    /*padding-left: 10px;*/
+    /*border-left: 1px solid rgba(255, 255, 255, 0.20);*/
 }
+
+p {
+    font-family: "europa";
+    color: rgba(255, 255, 255, 0.40);
+    text-align: left;
+    display: block;
+    font-weight: 400;
+    letter-spacing: 0.5px;
+    font-size: 16px;
+    line-height: 22px;
+}
+
+span.highlight {
+    color: rgba(255, 255, 255, 0.60)
+    /*border-bottom: 1px dotted rgba(255, 255, 255, 0.15);*/
+}
+
 
 #noise {
 /*    -webkit-animation: grainy 2s steps(4) infinite;
@@ -73,14 +104,14 @@ p {
     top: 0;
     left: 0;
     overflow: hidden;
-    opacity: 0.6;
+    opacity: 0.9;
     background-image: url(test3.png);
     background-repeat: repeat;
     content: '';
     display: block;
     z-index: 1;
 }
-canvas {
+canvas#background {
     position: relative;
     z-index: 2;
     height: 100%;
