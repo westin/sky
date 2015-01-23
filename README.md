@@ -1,2 +1,2 @@
 # sky
-my personal website, a completely animated sky written in paper.js
+my personal website: an animated sky written in paper.js
