@@ -24,7 +24,8 @@ html {
     overflow: auto;
     margin-left: 50px;
     width: auto;
-    margin-top: 100px;
+    margin-top: 200px;
+    margin-bottom: 50px;
 }
 
 #title {
@@ -98,13 +99,22 @@ span.highlight {
 
 li {
     display: inline-block;
-    opacity: 0.4;
+    opacity: 0.3;
     vertical-align: middle;
-    padding-right: 16px;
+    margin-right: 16px;
+    transition: all 0.1s ease-out;
 }
 
 li:hover{
     opacity: 1;
+}
+
+li img{
+    display: block;
+}
+
+a {
+    text-decoration: none;
 }
 
 #noise {
@@ -160,8 +170,9 @@ canvas#background {
 
     #content {
         margin-left: 20px;
-        height: 250px;
-        width: 100%;
+        margin-top: 35%;
+        /*height: 250px;*/
+        /*width: 100%;*/
     }
 
     canvas#westin{
