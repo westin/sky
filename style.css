@@ -2,11 +2,11 @@ html {
     background: #0B0210;
     /*background-image: radial-gradient(73% 55%, RGBA(39, 32, 69, 0.3) 0%, rgba(0,0,0,0.00) 90%);*/
     /*background-image: radial-gradient(100% 100%, RGBA(39, 32, 69, 1) 99%, rgba(0,0,0,0.00) 90%);*/
-    background-image: radial-gradient(at 70%, rgba(39, 32, 69, 0.4) 0%, rgba(11, 2, 16, 0.00) 80%),
-    	radial-gradient(farthest-side at 70% 200%, rgba(82,48,97,0.4) 30%, rgba(11,2,16,0.00) 80%),
-    	radial-gradient(ellipse closest-corner at 60% 40%, rgba(47,44,111,0.3) 0%, rgba(16,15,39, 0.4) 90%),
+    /*background-image: radial-gradient(at 70%, rgba(39, 32, 69, 0.4) 0%, rgba(11, 2, 16, 0.00) 80%),
+        radial-gradient(farthest-side at 70% 200%, rgba(82,48,97,0.4) 30%, rgba(11,2,16,0.00) 80%),
+        radial-gradient(ellipse closest-corner at 60% 40%, rgba(47,44,111,0.3) 0%, rgba(16,15,39, 0.4) 90%),
         radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0) 0%, rgba(11,2,16,0.00) 80%),
-	    radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 90%);
+        radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 90%);*/
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
 }
@@ -14,21 +14,17 @@ html {
 #container {
     height: 100%;
     width: 100%;
-    overflow: hidden;
     position: relative;
     z-index: 3;
 }
 
 #content {
-    position: absolute;
+    position: relative;
     z-index: 4;
-    height: 170px;
     overflow: auto;
-    margin: auto;
-    top: 0; 
-    bottom: 0; 
-    right: auto; 
-    left: 50px;
+    margin-left: 50px;
+    width: auto;
+    margin-top: 100px;
 }
 
 #title {
@@ -76,6 +72,12 @@ h2 {
     /*border-left: 1px solid rgba(255, 255, 255, 0.20);*/
 }
 
+#links{
+    clear: both;
+    margin-top: 20px;
+    width: 450px;
+}
+
 p {
     font-family: "europa";
     color: rgba(255, 255, 255, 0.40);
@@ -85,15 +87,16 @@ p {
     letter-spacing: 0.5px;
     font-size: 16px;
     line-height: 22px;
+    word-wrap: break-word;
 }
 
 span.highlight {
-    color: rgba(255, 255, 255, 0.60)
+    color: rgba(255, 255, 255, 0.60);
     /*border-bottom: 1px dotted rgba(255, 255, 255, 0.15);*/
 }
 
 #noise {
-    position: absolute;
+    position: fixed;
     height: 100%;
     width: 100%;
     top: 0;
@@ -104,18 +107,39 @@ span.highlight {
     background-repeat: repeat;
     content: '';
     display: block;
-    z-index: 1;
-}
-canvas#background {
-    position: relative;
     z-index: 2;
+}
+
+#gradients {
+    position: fixed;
     height: 100%;
     width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    opacity: 0.9;
+    background-image: radial-gradient(at 70%, rgba(39, 32, 69, 0.4) 0%, rgba(11, 2, 16, 0.00) 80%),
+        radial-gradient(farthest-side at 70% 200%, rgba(82,48,97,0.4) 30%, rgba(11,2,16,0.00) 80%),
+        radial-gradient(ellipse closest-corner at 60% 40%, rgba(47,44,111,0.3) 0%, rgba(16,15,39, 0.4) 90%),
+        radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0) 0%, rgba(11,2,16,0.00) 80%),
+        radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 90%);
+    display: block;
+    z-index: 1;
+}
+
+
+canvas#background {
+    position: fixed;
+    z-index: 1;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
 }
 
 @media only screen and (max-width : 535px) {
     #content {
-        left: 20px;
+        margin-left: 20px;
     }
 }
 
@@ -123,7 +147,7 @@ canvas#background {
 @media only screen and (max-width : 483px) {
 
     #content {
-        left: 20px;
+        margin-left: 20px;
         height: 250px;
         width: 100%;
     }
