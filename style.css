@@ -9,7 +9,7 @@ html {
         radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 90%);*/
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
-    /*overflow: hidden;*/
+    overflow: hidden;
 }
 
 #container {
