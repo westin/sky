@@ -158,7 +158,7 @@ canvas#background {
         margin-left: 20px;
         margin-top: 35%;
         height: 280px;
-        width: 100%;
+        /*width: 100%;*/
         left: 0;
     }
 
@@ -202,10 +202,12 @@ canvas#background {
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
+@media only screen and (max-width : 382px) {
     #content {
         margin-top: 100px;
         height: 100%;
+        width: 100%;
+        overflow: hidden;
     }
 
     p {
