@@ -26,9 +26,59 @@
                     <br>
                     <br>Last summer, I interned at <span class="highlight">Etsy as a UX Researcher</span>. This summer, I'll intern at <span class="highlight">Facebook as a Product Designer</span>.</p>
             </div>
+            <div id="links">
+                <ul>
+                <li id="facebook">
+                    <a target='_blank' href="https://www.facebook.com/lohne">
+                        <img src="icons/f.svg">
+                    </a>
+                </li>
+
+                <li id="twitter">
+                    <a target='_blank' href="https://twitter.com/westinlohne">
+                        <img src="icons/t.svg">
+                    </a>
+                <li id="instagram">
+                    <a target='_blank' href="http://instagram.com/westinlohne/">
+                        <img src="icons/i.svg">
+                    </a>
+                </li>
+                <li id="github">
+                    <a target='_blank' href="https://github.com/westinlohne/">
+                        <img src="icons/g.svg">
+                    </a>
+                </li>
+                <li id="email">
+                    <script type="text/javascript" language="javascript">
+                    <!--
+                    // Email obfuscator script 2.1 by Tim Williams, University of Arizona
+                    // Random encryption key feature by Andrew Moulden, Site Engineering Ltd
+                    // This code is freeware provided these four comment lines remain intact
+                    // A wizard to generate this code is at http://www.jottings.com/obfuscator/
+                    { coded = "bWGdnk@AKm.Wem"
+                      key = "qn3cYOPThZuGWDgkzAVQHM8LmSw0oCXatl756yK1bEvFxId4Nirf9pURJj2seB"
+                      shift=coded.length
+                      link=""
+                      for (i=0; i<coded.length; i++) {
+                        if (key.indexOf(coded.charAt(i))==-1) {
+                          ltr = coded.charAt(i)
+                          link += (ltr)
+                        }
+                        else {     
+                          ltr = (key.indexOf(coded.charAt(i))-shift+key.length) % key.length
+                          link += (key.charAt(ltr))
+                        }
+                      }
+                    document.write("<a target='_blank' href='mailto:"+link+"'><img src='icons/email.svg'></a>")
+                    }
+                    //-->
+                    </script>
+                </li>
+                </ul>
+            </div>
         </div>
-        <div id="noise">
-        </div>
+        <div id="noise"></div>
+        <div id="gradients"></div>
         <canvas id="background" hidpi="on" resize="true" keepalive="true"></canvas>
     </div>
 

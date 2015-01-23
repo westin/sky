@@ -198,7 +198,7 @@
         }
 
         else if(resizeTimeout == 0 && project.activeLayer.opacity < 1){
-            project.activeLayer.opacity += 0.06;
+            project.activeLayer.opacity += 0.1;
         }
 
         // move white stars

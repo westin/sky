@@ -1,20 +1,13 @@
 html {
     background: #0B0210;
-    /*background-image: radial-gradient(73% 55%, RGBA(39, 32, 69, 0.3) 0%, rgba(0,0,0,0.00) 90%);*/
-    /*background-image: radial-gradient(100% 100%, RGBA(39, 32, 69, 1) 99%, rgba(0,0,0,0.00) 90%);*/
-    background-image: radial-gradient(at 70%, rgba(39, 32, 69, 0.4) 0%, rgba(11, 2, 16, 0.00) 80%),
-    	radial-gradient(farthest-side at 70% 200%, rgba(82,48,97,0.4) 30%, rgba(11,2,16,0.00) 80%),
-    	radial-gradient(ellipse closest-corner at 60% 40%, rgba(47,44,111,0.3) 0%, rgba(16,15,39, 0.4) 90%),
-        radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0) 0%, rgba(11,2,16,0.00) 80%),
-	    radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 90%);
     font-family: "HelveticaNeue-Light", "Helvetica Neue Light", "Helvetica Neue", Helvetica, Arial, "Lucida Grande", sans-serif; 
     font-weight: 300;
+    overflow: hidden;
 }
 
 #container {
     height: 100%;
     width: 100%;
-    overflow: hidden;
     position: relative;
     z-index: 3;
 }
@@ -23,7 +16,7 @@ html {
     position: absolute;
     z-index: 4;
 
-    height: 170px;
+    height: 230px;
     overflow: auto;
     margin: auto;
     top: 0; 
@@ -35,12 +28,9 @@ html {
 #title {
     display: block;
     width: 100%;
-    /*padding-left: 10px;*/
 }
 
 canvas#westin{
-/*    width: 100%;
-    height: 10px;*/
     border-radius: 3px;
     float: left;
 }
@@ -58,13 +48,10 @@ h1 {
 
 h2 {
     color: rgba(255, 255, 255, 0.9);
-    /*color: red;*/
-    /*color: rgba(0, 0, 0, 0.70);*/
     text-transform: uppercase;
     letter-spacing: 5px;
     margin-left: 15px;
     margin-top: 18px;
-    /*position: absolute;*/
     font-size: 0.8em;
     float: left;
 }
@@ -73,8 +60,12 @@ h2 {
     clear: both;
     margin-top: 60px;
     width: 450px;
-    /*padding-left: 10px;*/
-    /*border-left: 1px solid rgba(255, 255, 255, 0.20);*/
+}
+
+#links{
+    clear: both;
+    margin-top: 20px;
+    width: 450px;
 }
 
 p {
@@ -86,11 +77,32 @@ p {
     letter-spacing: 0.5px;
     font-size: 16px;
     line-height: 22px;
+    word-wrap: break-word;
 }
 
 span.highlight {
-    color: rgba(255, 255, 255, 0.60)
-    /*border-bottom: 1px dotted rgba(255, 255, 255, 0.15);*/
+    color: rgba(255, 255, 255, 0.60);
+}
+
+
+li {
+    display: inline-block;
+    opacity: 0.3;
+    vertical-align: middle;
+    margin-right: 16px;
+    transition: all 0.1s ease-out;
+}
+
+li:hover{
+    opacity: 1;
+}
+
+li img{
+    display: block;
+}
+
+a {
+    text-decoration: none;
 }
 
 #noise {
@@ -105,8 +117,27 @@ span.highlight {
     background-repeat: repeat;
     content: '';
     display: block;
+    z-index: 2;
+}
+
+#gradients {
+    position: fixed;
+    height: 100%;
+    width: 100%;
+    top: 0;
+    left: 0;
+    overflow: hidden;
+    opacity: 0.9;
+    background-image: radial-gradient(at 70%, rgba(39, 32, 69, 0.4) 0%, rgba(11, 2, 16, 0.00) 80%),
+        radial-gradient(farthest-side at 70% 200%, rgba(82,48,97,0.4) 30%, rgba(11,2,16,0.00) 80%),
+        radial-gradient(ellipse closest-corner at 60% 40%, rgba(47,44,111,0.3) 0%, rgba(16,15,39, 0.4) 90%),
+        radial-gradient(circle farthest-side at 0% 90%, rgba(255,255,255, 0) 0%, rgba(11,2,16,0.00) 80%),
+        radial-gradient(100% 40%, rgba(82,48,97,0.3) 0%, rgba(11,2,16,0.00) 90%);
+    display: block;
     z-index: 1;
 }
+
+
 canvas#background {
     position: relative;
     z-index: 2;
@@ -114,9 +145,7 @@ canvas#background {
     width: 100%;
 }
 
-
-
-@media only screen and (max-width : 535px) {
+@media only screen and (max-width : 556px) {
     #content {
         left: 20px;
     }
@@ -126,9 +155,11 @@ canvas#background {
 @media only screen and (max-width : 483px) {
 
     #content {
-        left: 20px;
-        height: 250px;
-        width: 100%;
+        margin-left: 20px;
+        margin-top: 35%;
+        height: 280px;
+        /*width: 100%;*/
+        left: 0;
     }
 
     canvas#westin{
@@ -159,10 +190,6 @@ canvas#background {
 
     #description {
         padding-left: 0;
-/*        padding-right: 30px;
-        width: 100%;
-        max-width: 350px;*/
-        /*min-width: 200px;*/
         margin-top: 10px;
         width: 80%;
     }
@@ -175,15 +202,21 @@ canvas#background {
 }
 
 /* Smartphones (portrait) ----------- */
-@media only screen and (max-width : 320px) {
+@media only screen and (max-width : 382px) {
     #content {
         margin-top: 100px;
         height: 100%;
+        width: 100%;
+        overflow: hidden;
+    }
+
+    #description {
+        width: 90%;
     }
 
     p {
         letter-spacing: 0.5px;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 21px;
     }
 }

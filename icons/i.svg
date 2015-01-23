@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="34px" height="34px" viewBox="0 0 34 34" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>instagram</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.627577594   0 0 0 0 0.627577594   0 0 0 0 0.627577594  0 0 0 0.326024683 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(-77.000000, -27.000000)" fill-opacity="0.789855072" filter="url(#filter-1)" fill="#FFFFFF">
+            <path d="M85.3046073,33 C84.0327946,33 83,34.0328638 83,35.3047619 L83,52.6952381 C83,53.9686117 84.0313192,55 85.3046073,55 L102.695393,55 C103.967205,55 105,53.9686117 105,52.6952381 L105,35.3047619 C105,34.0328638 103.967205,33 102.695393,33 L85.3046073,33 L85.3046073,33 Z M94.0125411,39.6560698 C96.3938703,39.6560698 98.3237207,41.5860496 98.3237207,43.9675386 C98.3237207,46.347552 96.3938703,48.2790074 94.0125411,48.2790074 C91.6326873,48.2790074 89.7028368,46.347552 89.7028368,43.9675386 C89.7028368,41.5845741 91.6326873,39.6560698 94.0125411,39.6560698 L94.0125411,39.6560698 Z M102.485883,51.6638498 C102.485883,52.2127431 102.096372,52.4399732 101.501777,52.4399732 L86.4554356,52.4399732 C85.860841,52.4399732 85.4713299,52.2127431 85.4713299,51.6638498 L85.4713299,42.2633132 L87.3215076,42.2633132 C87.1946214,42.7856472 87.1252766,43.3315895 87.1252766,43.8922871 C87.1252766,47.6828974 90.1985782,50.7578806 93.9904098,50.7578806 C97.7822413,50.7578806 100.855543,47.6828974 100.855543,43.8922871 C100.855543,43.330114 100.786198,42.7856472 100.659312,42.2633132 L102.484407,42.2633132 C102.485883,42.2618377 102.485883,51.1134809 102.485883,51.6638498 L102.485883,51.6638498 Z M102.50949,38.9965124 C102.50949,39.4332663 102.155389,39.7859155 101.718664,39.7859155 L98.9699551,39.7859155 C98.5332305,39.7859155 98.1791295,39.4332663 98.1791295,38.9965124 L98.1791295,36.247619 C98.1791295,35.8093897 98.5332305,35.4567404 98.9699551,35.4567404 L101.718664,35.4567404 C102.155389,35.4567404 102.50949,35.8093897 102.50949,36.247619 L102.50949,38.9965124 L102.50949,38.9965124 Z" id="instagram" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
