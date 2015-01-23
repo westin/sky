@@ -1,2 +1,2 @@
 # sky
-my current personal website: a full emulated night sky written in mostly paper.js
+my personal website, a completely animated sky written in paper.js
