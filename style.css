@@ -95,6 +95,18 @@ span.highlight {
     /*border-bottom: 1px dotted rgba(255, 255, 255, 0.15);*/
 }
 
+
+li {
+    display: inline-block;
+    opacity: 0.4;
+    vertical-align: middle;
+    padding-right: 16px;
+}
+
+li:hover{
+    opacity: 1;
+}
+
 #noise {
     position: fixed;
     height: 100%;

@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<svg width="38px" height="28px" viewBox="0 0 38 28" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xmlns:sketch="http://www.bohemiancoding.com/sketch/ns">
+    <!-- Generator: Sketch 3.2.2 (9983) - http://www.bohemiancoding.com/sketch -->
+    <title>last_fm</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+        <filter x="-50%" y="-50%" width="200%" height="200%" filterUnits="objectBoundingBox" id="filter-1">
+            <feOffset dx="0" dy="0" in="SourceAlpha" result="shadowOffsetOuter1"></feOffset>
+            <feGaussianBlur stdDeviation="3" in="shadowOffsetOuter1" result="shadowBlurOuter1"></feGaussianBlur>
+            <feColorMatrix values="0 0 0 0 0.627577594   0 0 0 0 0.627577594   0 0 0 0 0.627577594  0 0 0 0.326024683 0" in="shadowBlurOuter1" type="matrix" result="shadowMatrixOuter1"></feColorMatrix>
+            <feMerge>
+                <feMergeNode in="shadowMatrixOuter1"></feMergeNode>
+                <feMergeNode in="SourceGraphic"></feMergeNode>
+            </feMerge>
+        </filter>
+    </defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd" sketch:type="MSPage">
+        <g id="Group" sketch:type="MSLayerGroup" transform="translate(-182.000000, -30.000000)" fill-opacity="0.789855072" filter="url(#filter-1)" fill="#FFFFFF">
+            <path d="M210.907772,42.7129008 C208.833156,42.0372856 207.348074,41.7867263 207.348074,40.1357196 C207.348074,38.9753915 208.251124,38.1014169 209.512694,38.1014169 C210.420244,38.1014169 211.135784,38.4563758 211.78682,39.360179 L213.505916,38.4862043 C212.629867,36.9395973 211.360797,36.1625652 209.605699,36.1625652 C206.91605,36.1625652 205.261458,37.7762864 205.261458,40.196868 C205.261458,42.6800895 206.884548,43.7136465 210.034723,44.7457122 C211.78682,45.3243848 212.823378,45.6793438 212.823378,47.163311 C212.823378,48.6785981 211.461302,49.8806861 209.478192,49.8105891 C207.46208,49.743475 206.841046,48.6487696 206.109005,46.9903057 C204.93444,44.3191648 203.582865,41.1812081 203.477859,40.9366145 C202.100783,37.7807606 199.396133,36 196.041946,36 C191.5972,36 188,39.5824012 188,44 C188,48.4190902 191.5972,52 196.041946,52 C198.550086,52 200.78821,50.8605518 202.264292,49.0753169 L201.224734,46.6920209 C200.24968,48.5443699 198.292071,49.8120805 196.041946,49.8120805 C192.819768,49.8120805 190.199122,47.2110365 190.199122,44 C190.199122,40.7919463 192.818267,38.1894109 196.041946,38.1894109 C198.427079,38.1894109 200.539196,39.5794183 201.391243,41.6405667 L203.957886,47.4601044 L204.256402,48.1148397 C205.29596,50.5264728 206.793043,51.8926174 209.605699,51.9045488 C212.661369,51.9075317 214.999999,49.9388516 214.999999,47.2259508 C215.001499,44.650261 213.702427,43.6181954 210.907772,42.7129008 L210.907772,42.7129008 Z" id="last_fm" sketch:type="MSShapeGroup"></path>
+        </g>
+    </g>
+</svg>
