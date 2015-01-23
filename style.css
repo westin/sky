@@ -210,9 +210,13 @@ canvas#background {
         overflow: hidden;
     }
 
+    #description {
+        width: 90%;
+    }
+
     p {
         letter-spacing: 0.5px;
-        font-size: 14px;
+        font-size: 16px;
         line-height: 21px;
     }
 }
