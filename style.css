@@ -17,7 +17,7 @@ html {
     z-index: 4;
 
     height: 230px;
-    overflow: auto;
+    overflow: hidden;
     margin: auto;
     top: 0; 
     bottom: 0; 
